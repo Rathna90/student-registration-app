@@ -9,7 +9,13 @@ app.use(express.json());
 let students = [];
 
 app.post("/register", (req, res) => {
+
+    console.log("Received Data:");
+    console.log(req.body);
+
     students.push(req.body);
+
+    console.log(students);
 
     res.json({
         message: "Student Registered Successfully"
