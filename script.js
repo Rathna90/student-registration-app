@@ -5,19 +5,19 @@ async function registerStudent() {
     let course = document.getElementById("course").value;
 
     const response = await fetch(
-      "http://YOUR_EC2_PUBLIC_IP:3000/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          course
-        })
-      }
-    );
+  "http://65.0.95.93:3000/register",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      course
+    })
+  }
+);
 
     const data = await response.json();
 
