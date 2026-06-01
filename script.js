@@ -1,11 +1,26 @@
-function registerStudent(){
+async function registerStudent() {
 
-    let name=document.getElementById("name").value;
-    let email=document.getElementById("email").value;
-    let course=document.getElementById("course").value;
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let course = document.getElementById("course").value;
 
-    document.getElementById("msg").innerHTML=
-    "Registration Successful";
+    const response = await fetch(
+      "http://YOUR_EC2_PUBLIC_IP:3000/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          course
+        })
+      }
+    );
+
+    const data = await response.json();
+
+    document.getElementById("msg").innerHTML =
+      data.message;
 }
-
-
